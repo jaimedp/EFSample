@@ -1,0 +1,29 @@
+@model EFSample.Model.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Post</legend>
+
+    <div class="display-label">Owner</div>
+    <div class="display-field">@(Model.Owner == null ? "None" : Model.Owner.LastName)</div>
+
+    <div class="display-label">PostDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.PostDate)</div>
+
+    <div class="display-label">Text</div>
+    <div class="display-field">@Model.Text</div>
+
+    <div class="display-label">Comments</div>
+    <div class="display-field">@(Model.Comments == null ? "None" : Model.Comments.Count.ToString())</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

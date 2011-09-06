@@ -1,0 +1,21 @@
+@model IEnumerable<EFSample.Model.Post>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Posts</h2>
+
+<p>
+@Html.Partial("NewPost", new EFSample.Web.ViewModels.PostViewModel())
+</p>
+
+@foreach (var item in Model)
+{
+    <div class="post">
+    <span class="post-text">@Html.Raw(item.Text.Replace("\n","<br>")) </span>
+    <span class="post-date">@item.PostDate</span> 
+    </div>
+}
+
+

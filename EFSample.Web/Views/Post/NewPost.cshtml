@@ -1,0 +1,15 @@
+﻿@model EFSample.Web.ViewModels.PostViewModel
+
+@using (Html.BeginForm("Create", "Post")) {
+    @Html.ValidationSummary(true)
+
+                @Html.Hidden("userId", (int)ViewBag.UserId)
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Text)
+            @Html.ValidationMessageFor(model => model.Text)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+}
